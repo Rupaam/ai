@@ -1,0 +1,25 @@
+int pin[] = {13, 12, 11, 10, 9, 8, 7};
+
+void setup() {
+  for (int i = 0; i < 7; i++) {
+    pinMode(pin[i], OUTPUT);
+  }
+}
+
+void showDigit(byte code)
+{
+  for (int i = 0; i < 7; i++) {
+    digitalWrite(pin[i], bitRead(code, 6 - i));
+  }
+}
+
+void loop() {
+
+  // Display 2
+  showDigit(0b1101101);
+  delay(500);
+
+  // Display 1
+  showDigit(0b0110000);
+  delay(500);
+}
